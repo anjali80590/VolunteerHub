@@ -1,13 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Volunteer Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<link rel="stylesheet" href="style.css">
+
 <body>
-    
+    <nav class="navbar">
+        <h1>🤝 VOLUNTEER HUB</h1>
+        <ul>
+            <li><a href="#home" class="nav-link">Home</a></li>
+            <li><a href="#opportunities" class="nav-link">Opportunities</a></li>
+            <li><a href="#calendar" class="nav-link">Calendar</a></li>
+            <li><a href="#resources" class="nav-link">Resources</a></li>
+            <li id="navUserArea">
+                <div class="auth-buttons" id="authButtons">
+                    <button class="auth-button" id="openLogin">Login</button>
+                    <button class="auth-button" id="openSignup">Signup</button>
+                </div>
+                <div id="userGreeting" style="display: none;">
+                    Welcome, <span id="usernameDisplay"></span>
+                    <button id="logoutButton">Logout</button>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h2>Welcome to Volunteer Hub</h2>
+            <p>Connect with meaningful volunteer opportunities in your community</p>
+            <button class="cta-button" onclick="scrollToSection('opportunities')">Find Opportunities</button>
+
+        </div>
+    </section>
+    <section class="opportunities" id="opportunities">
+        <h2>Volunteer Opportunities</h2>
+        <div class="search-container">
+            <input type="text" placeholder="Search by title or organization..." class="search-input" id="searchInput">
+            <select class="category-select" id="categorySelect">
+                <option value="">All Categories</option>
+                <option value="Hunger Relief">Hunger Relief</option>
+                <option value="Animal Care">Animal Care</option>
+                <option value="Education & Mentorship">Education & Mentorship</option>
+                <option value="Elderly Support">Elderly Support</option>
+                <option value="Environment">Environment</option>
+                <option value="Sustainability">Sustainability</option>
+                <option value="Homelessness">Homelessness</option>
+            </select>
+        </div>
+
+        <div class="opportunity-grid" id="opportunityGrid">
+
+        </div>
+    </section>
+
+    <section class="my-hours" id="my-hours">
+        <h2>VolunteerConnect</h2>
+        <div class="hours-content">
+            <div class="hours-stats">
+                <div class="stat-card">
+                    <div class="stat-number" id="totalHours">0</div>
+                    <div class="stat-label">Total Hours</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalOrganizations">0</div>
+                    <div class="stat-label">Organizations</div>
+                </div>
+                <div class="stat-card">
+                    <div class="stat-number" id="totalEvents">0</div>
+                    <div class="stat-label">Events Applied</div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+    <section class="calendar" id="calendar">
+        <h2> Calendar - UpComing Volunteer Events</h2>
+        <div class="calendar-content">
+
+            <div class="upcoming-events" id="upcomingEvents">
+
+            </div>
+        </div>
+    </section>
+    <section class="resources" id="resources">
+        <h2>Resources</h2>
+        <div class="resources-grid">
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-book"></i></div>
+                <h3>Volunteer Handbook</h3>
+                <p>Essential guidelines and best practices for effective volunteering in your community.</p>
+                <a href="https://www.unitedway.org/get-involved/volunteer" target="_blank" class="resource-link">
+                    <i class="fas fa-external-link-alt"></i> Learn More
+                </a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-users"></i></div>
+                <h3>Training Materials</h3>
+                <p>Access training resources and certification programs to enhance your volunteer skills.</p>
+                <a href="https://www.coursera.org/courses?query=volunteer%20management" target="_blank"
+                    class="resource-link">
+                    <i class="fas fa-external-link-alt"></i> Browse Courses
+                </a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-phone"></i></div>
+                <h3>Contact Support</h3>
+                <p>Get help and support from our volunteer coordination team whenever you need assistance.</p>
+                <a href="mailto:support@volunteerhub.org" class="resource-link">
+                    <i class="fas fa-envelope"></i> Email Support
+                </a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-star"></i></div>
+                <h3>Recognition Program</h3>
+                <p>Learn about volunteer awards, certificates, and recognition opportunities.</p>
+                <a href="https://www.pointsoflight.org/awards-recognition/" target="_blank" class="resource-link">
+                    <i class="fas fa-external-link-alt"></i> View Programs
+                </a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-graduation-cap"></i></div>
+                <h3>Online Learning</h3>
+                <p>Free courses on volunteer management, leadership, and community service skills.</p>
+                <a href="https://www.edx.org/learn/volunteering" target="_blank" class="resource-link">
+                    <i class="fas fa-external-link-alt"></i> Start Learning
+                </a>
+            </div>
+            <div class="resource-card">
+                <div class="resource-icon"><i class="fas fa-network-wired"></i></div>
+                <h3>Volunteer Networks</h3>
+                <p>Connect with other volunteers and share experiences in our community forums.</p>
+                <a href="https://www.volunteermatch.org/" target="_blank" class="resource-link">
+                    <i class="fas fa-external-link-alt"></i> Join Network
+                </a>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="footer-content simple-footer">
+            <h3><i class="fas fa-heart"></i> Volunteer Hub</h3>
+            <p>Connecting communities through meaningful volunteer opportunities.</p>
+
+            <div class="footer-icons">
+                <a href="mailto:support@volunteerhub.org" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="tel:+1-555-012-3456" aria-label="Phone"><i class="fas fa-phone"></i></a>
+                <a href="https://github.com/yourusername" target="_blank" aria-label="GitHub"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/yourprofile" target="_blank" aria-label="LinkedIn"><i
+                        class="fab fa-linkedin"></i></a>
+            </div>
+
+            <p class="footer-note">Made with <i class="fas fa-heart"></i> by Anjali for the community.</p>
+        </div>
+    </footer>
+    <div class="modal" id="loginModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Login</h3>
+            <form class="auth-form" id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" />
+                <input type="password" id="loginPassword" placeholder="Password" />
+
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+    <div class="modal" id="signupModal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h3>Signup</h3>
+            <form class="auth-form" id="signupForm">
+                <input type="text" id="signupUsername" placeholder="Username" />
+                <input type="email" id="signupEmail" placeholder="Email" />
+                <input type="password" id="signupPassword" placeholder="Password" />
+
+                <button type="submit">Signup</button>
+            </form>
+        </div>
+    </div>
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
+
 </html>
